@@ -22,7 +22,7 @@ python zeroshot_coreset_selection.py --dataset eurosat10 --data_dir ./data --res
 
 Step 3. **Train Coreset Model**
 ```bash
-python train_coreset_model.py --prune_rate 0.7 --dataset eurosat10 --data_dir ./data --score_file ./results/eurosat10/zcore-eurosat10-clip-resnet18-1000Ks-2sd-1000nn-4ex-0/score.npy
+python train_coreset_model.py --prune_rate 0.7 --dataset eurosat10 --data_dir ./data --score_file ./results/eurosat10/zcore-eurosat10-clip-resnet18-1000Ks-2sd-ri-1000nn-4ex-0/score.npy
 ```
 
 ## Repeat Trials
@@ -42,30 +42,30 @@ chmod +x ./repeat-trial-scripts/eurosat10-train-x5.sh
 
 We provide example repeat trial results in `./results/example/eurosat10`. To tabulate these repeat trials run:
 ```bash
-python process_repeat_trials.py --base_score_dir ./results/example/eurosat10/zcore-eurosat10-clip-resnet18-1000Ks-2sd-1000nn-4ex
+python process_repeat_trials.py --base_score_dir ./results/example/eurosat10/zcore-eurosat10-clip-resnet18-1000Ks-2sd-ri-1000nn-4ex
 ```
 to generate the following table:
 ```
 Setting p30-s51 p50-s51 p70-s51 p80-s51 p90-s51 
 
 Trial Results
-0       93.70   92.16   85.06   79.27   68.56   
-1       93.84   92.09   87.16   81.92   64.01   
-2       94.00   91.74   84.01   82.05   65.27   
-3       93.67   91.90   85.17   76.91   63.63   
-4       93.81   92.07   86.72   82.93   64.56   
+0       93.80   91.93   86.10   80.98   63.63   
+1       93.39   91.26   85.74   78.88   65.58   
+2       93.63   91.21   87.91   79.84   66.70   
+3       93.90   92.38   86.91   79.86   65.16   
+4       94.06   92.26   86.47   80.20   67.75   
 
 Aggregate Results
-Mean    93.80   91.99   85.62   80.62   65.21   
-StdDev  0.117   0.152   1.157   2.221   1.765   
-Overall Mean: 83.45   
+Mean    93.76   91.81   86.63   79.95   65.76   
+StdDev  0.230   0.491   0.750   0.677   1.398   
+Overall Mean: 83.58 
 ```
 
 ## Datasets
 
 **ImageNet** can be downloaded [here](https://www.kaggle.com/c/imagenet-object-localization-challenge/data "ImageNet download") and subsequently reformatted using:
 ```bash
-cd val/                                                               
+cd ./ILSVRC/Data/CLS-LOC/val/                                                               
 wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
 ```
 
@@ -78,7 +78,7 @@ wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/
 If you find this code useful, please consider citing our paper:
 
 ```bibtex
-@article{griffin24blindcs,
+@article{griffin24zcore,
   title={Zero-Shot Coreset Selection: Efficient Pruning for Unlabeled Data},
   author={Griffin, Brent A and Marks, Jacob and Corso, Jason J},
   journal={arXiv preprint arXiv:...},
