@@ -4,7 +4,7 @@
 
 \* Corresponding author
 
-**Z**ero-Shot **Core**set Selection (ZCore) is a method of coreset selection for unlabeled data. Deep learning methods rely on massive data, resulting in substantial costs for storage, annotation, and model training. Coreset selection aims to select a subset of the data to train models with lower cost while ideally performing on par with the full data training. Although the majority of real-world data are unlabeled, previous state-of-the-art coreset methods cannot select data that are unlabeled. As a solution, ZCore addresses the problem of coreset selection without labels _or_ training on candidate data. Instead, ZCore uses existing foundation models to generate a zero-shot embedding space for unlabeled data, then quantifies the relative importance of each example based on overall coverage and redundancy within the embedding distribution. On ImageNet, the ZCore coreset achieves a higher accuracy than previous label-based coresets at a 90% prune rate, while removing annotation requirements for 1.15 million images.
+**Z**ero-Shot **Core**set Selection ([ZCore](https://arxiv.org/pdf/2411.15349 "ZCore Paper")) is a method of coreset selection for unlabeled data. Deep learning methods rely on massive data, resulting in substantial costs for storage, annotation, and model training. Coreset selection aims to select a subset of the data to train models with lower cost while ideally performing on par with the full data training. Although the majority of real-world data are unlabeled, previous state-of-the-art coreset methods cannot select data that are unlabeled. As a solution, ZCore addresses the problem of coreset selection without labels _or_ training on candidate data. Instead, ZCore uses existing foundation models to generate a zero-shot embedding space for unlabeled data, then quantifies the relative importance of each example based on overall coverage and redundancy within the embedding distribution. On ImageNet, the ZCore coreset achieves a higher accuracy than previous label-based coresets at a 90% prune rate, while removing annotation requirements for 1.15 million images.
 
 __Zero-Shot Coreset Selection Overview__
 ![alt text](./figure/main_figure.jpg?raw=true "ZCore Overview")
@@ -75,13 +75,13 @@ wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/
 
 ## Citation
 
-If you find this code useful, please consider citing our paper:
+If you find this code useful, please consider citing our [paper](https://arxiv.org/pdf/2411.15349):
 
 ```bibtex
 @article{griffin24zcore,
   title={Zero-Shot Coreset Selection: Efficient Pruning for Unlabeled Data},
   author={Griffin, Brent A and Marks, Jacob and Corso, Jason J},
-  journal={arXiv preprint arXiv:...},
+  journal={arXiv},
   year={2024}
 }
 ```
